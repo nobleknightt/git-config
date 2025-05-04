@@ -1,0 +1,35 @@
+name: Release
+
+# Trigger the workflow only on version tags like v1.0.0
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+# Give the workflow permission to publish release assets
+permissions:
+  contents: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the source code, including full history (required by GoReleaser)
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Set up the Go environment for the build
+      - name: Set up Go
+        uses: actions/setup-go@v5
+
+      # Run GoReleaser to build and publish release artifacts
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          distribution: goreleaser
+          version: '~> v2'
+          args: release --clean  # --clean removes old dist files before building
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Used to authenticate with GitHub to create releases
