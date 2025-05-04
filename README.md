@@ -1,6 +1,6 @@
 # Git Config
 
-A CLI tool based on the [Multi-Account Git Setup with SSH and Commit Signing](https://blog.ajaydandge.dev/blog/multi-account-git-config) guide, written in Go.
+A CLI tool based on the [Multi-Account Git Setup with SSH and Commit Signing](https://ajaydandge.dev/blog/multi-account-git-config) guide, written in Go.
 
 ## Install it from GitHub Releases
 
