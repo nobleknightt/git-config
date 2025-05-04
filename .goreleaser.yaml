@@ -51,9 +51,7 @@ changelog:
 
 # Release notes and footer for the release
 release:
-  footer: >-
-    ---
-    Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+  footer: Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
 
 # Checksum configuration for validating releases
 checksum:
